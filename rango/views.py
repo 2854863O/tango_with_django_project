@@ -36,12 +36,13 @@ def show_category(request, category_name_slug):
 
 def add_category(request):
     form = CategoryForm()
+    
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
             form.save(commit=True)
-
             return redirect("/rango/")
         else:
             print(form.errors)
-    return render(request,'/rango/add_category.html',{'form':form}) 
+            return render(request, "rango/add_category.html", {"form": form, "errors": form.errors})  # Show errors in template
+    return render(request, 'rango/add_category.html',{'form':form}) 
