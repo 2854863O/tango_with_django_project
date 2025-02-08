@@ -26,3 +26,6 @@ replay_pid*
 
 # database file
 db.sqlite3
+
+**/migrations/*.py
+**/migrations/*.pyc
